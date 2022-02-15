@@ -1,6 +1,5 @@
 #!/bin/bash
 
-source /etc/lsb-release
 
 if [[ awk -F= '/^NAME/{print $2}' /etc/os-release -e "CentOS Linux" ]]; then
   echo "No action taken..."
