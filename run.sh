@@ -1,7 +1,8 @@
 #!/bin/bash
 
+DISTR=$(awk -F= '/^NAME/{print $2}' /etc/os-release)
 
-if [[ awk -F= '/^NAME/{print $2}' /etc/os-release -e "CentOS Linux" ]]; then
+if [[ $DISTR -e "CentOS Linux" ]]; then
   echo "No action taken..."
   echo "Are you sure this is a CentOS system?"
   exit 1
