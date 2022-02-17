@@ -8,10 +8,12 @@ if [ -f /etc/os-release ]; then
     OS=$NAME
     VER=$VERSION_ID
     fi
+    
 if [ $OS != "CentOS Linux" ]; then
   echo "No action taken..."
   echo "Are you sure this is a CentOS system?"
   exit 1
+  fi
 
 if [[ $EUID -ne 0 ]]; then
   echo "No action taken..."
