@@ -1,20 +1,5 @@
 #!/bin/bash
 
-
-
-if [ -f /etc/os-release ]; then
-    # freedesktop.org and systemd
-    . /etc/os-release
-    OS=$NAME
-    VER=$VERSION_ID
-    fi
-    
-if [ $OS != "CentOS Linux" ]; then
-  echo "No action taken..."
-  echo "Are you sure this is a CentOS system?"
-  exit 1
-  fi
-
 if [[ $EUID -ne 0 ]]; then
   echo "No action taken..."
   echo "This script must be run as root"
