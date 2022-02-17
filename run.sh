@@ -1,12 +1,23 @@
 #!/bin/bash
 
-DISTR=$(awk -F= '/^NAME/{print $2}' /etc/os-release)
+//DISTR=$(awk -F= '/^NAME/{print $2}' /etc/os-release)
 
-if [[ $DISTR != "CentOS Linux" ]]; then
+//*if [[ $DISTR != "CentOS Linux" ]]; then
   echo "No action taken..."
   echo "Are you sure this is a CentOS system?"
   exit 1
-fi
+*//fi
+
+if [ -f /etc/os-release ]; then
+    # freedesktop.org and systemd
+    . /etc/os-release
+    OS=$NAME
+    VER=$VERSION_ID
+    fi
+if [ $OS != "CentOS Linux" ]; then
+  echo "No action taken..."
+  echo "Are you sure this is a CentOS system?"
+  exit 1
 
 if [[ $EUID -ne 0 ]]; then
   echo "No action taken..."
